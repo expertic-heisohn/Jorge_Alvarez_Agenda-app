@@ -1,6 +1,9 @@
-import { Component } from "@angular/core";
 import {Component, ViewChild} from '@angular/core';
 import {ModalDirective} from 'angular-bootstrap-md';
+import {FormControl} from '@angular/forms';
+
+
+
 
 
 @Component({
@@ -12,12 +15,18 @@ import {ModalDirective} from 'angular-bootstrap-md';
 
 })
 
-
-
-
-
 export class AppComponent {
   @ViewChild(ModalDirective) modal: ModalDirective;
+  timeInput = new FormControl();
+  subjectInput = new FormControl();
+  locationInput = new FormControl();
+  descriptionInput = new FormControl();
+
+    name:string = "";
+
+    changeName(){
+      this.name = "";
+    }
 
   deleteEvent(event: any) {
     const itemIndex = this.events.findIndex(el => el === event);
@@ -31,4 +40,5 @@ export class AppComponent {
     {time: '12:00', subject: 'Lunch with Timmoty', location: 'Canteen', description: 'Project evalutation ile declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a'},
     
   ];
+
 }
