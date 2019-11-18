@@ -40,5 +40,22 @@ export class AppComponent {
     {time: '12:00', subject: 'Lunch with Timmoty', location: 'Canteen', description: 'Project evalutation ile declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a'},
     
   ];
+  addNewEvent() {
+    const newEvent: any = {
+      time: this.timeInput.value,
+      subject: this.subjectInput.value,
+      location: this.locationInput.value,
+      description: this.descriptionInput.value
+    };
+  
+    this.events.push(newEvent);
+  
+    this.timeInput.setValue('');
+    this.subjectInput.setValue('');
+    this.locationInput.setValue('');
+    this.descriptionInput.setValue('');
+  
+    this.modal.hide();
+  }
 
 }
